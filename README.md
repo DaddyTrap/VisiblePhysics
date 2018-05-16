@@ -10,4 +10,4 @@ Visible Physics 是一个结合 AR 技术、能可视化物理现象、用于物
 
 然后可以在 Unity 中找到该文件，填入 App License Key 即可
 
-**Unity 版本: 2017.4.1f1**
+**Unity 版本: 2018.1.0f2**
