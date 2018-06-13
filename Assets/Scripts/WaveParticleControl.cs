@@ -104,7 +104,6 @@ public class WaveParticleControl : MonoBehaviour {
 		}
 	}
 
-	private int compoundPosCount = 0;
 	void CalcCompound() {
 		int particlesPerDir = particleCountPerWave / dirCount;
 		float perAngle = 2 * Mathf.PI / dirCount;
@@ -129,21 +128,6 @@ public class WaveParticleControl : MonoBehaviour {
 						* Mathf.Sin(waveInfos[0].sinInfo.omega
 						* (wR - offset)) + wY;
 				}
-				// var x0 = waveInfos[0].startPoint.position.x;
-				// var y0 = waveInfos[0].startPoint.position.y;
-				// var z0 = waveInfos[0].startPoint.position.z;
-				// var x1 = waveInfos[1].startPoint.position.x;
-				// var y1 = waveInfos[1].startPoint.position.y;
-				// var z1 = waveInfos[1].startPoint.position.z;
-				// var r0 = Mathf.Sqrt(Mathf.Pow(x - x0, 2) + Mathf.Pow(z - z0, 2));
-				// var r1 = Mathf.Sqrt(Mathf.Pow(x - x1, 2) + Mathf.Pow(z - z1, 2));
-				// var y = Mathf.Clamp(waveInfos[0].sinInfo.A - r0 * decreasingSpeed, 0f, waveInfos[0].sinInfo.A)
-				// 			* Mathf.Sin(waveInfos[0].sinInfo.omega
-				// 			* (r0 - offset)) + y0
-
-				// 			+ Mathf.Clamp(waveInfos[1].sinInfo.A - r1 * decreasingSpeed, 0f, waveInfos[1].sinInfo.A)
-				// 			* Mathf.Sin(waveInfos[1].sinInfo.omega
-				// 			* (r1 - offset)) + y1;
 
 				compoundPos[index] = new Vector3(x, y, z);
 			}
