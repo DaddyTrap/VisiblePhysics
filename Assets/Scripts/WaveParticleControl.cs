@@ -48,8 +48,9 @@ public class WaveParticleControl : MonoBehaviour {
 	public float delta = 0.05f;
 	public int dirCount = 12;
 	public int particleCountPerWave = 5000;
+	public float decreasingSpeed = 0.1f;
 
-	private int count { get { return waveInfos.Length * particleCountPerWave * 2; } }
+	private int count { get { return (waveInfos.Length + 1) * particleCountPerWave; } }
 
 	// Use this for initialization
 	void Start () {
@@ -90,7 +91,11 @@ public class WaveParticleControl : MonoBehaviour {
 
 					var index = i * particlesPerDir + j;
 					var x = particlesPos.X + waveInfos[waveIndex].startPoint.position.x;
-					var y = waveInfos[waveIndex].sinInfo.A * Mathf.Sin((particlesPos.radius - offset) * waveInfos[waveIndex].sinInfo.omega);
+					var y = Mathf.Clamp(
+										waveInfos[waveIndex].sinInfo.A - (particlesPos.radius * decreasingSpeed),
+										0f,
+										waveInfos[waveIndex].sinInfo.A)
+								* Mathf.Sin((particlesPos.radius - offset) * waveInfos[waveIndex].sinInfo.omega);
 					var z = particlesPos.Z + waveInfos[waveIndex].startPoint.position.z;
 
 					pos[waveIndex][index] = new Vector3(x, y, z);
@@ -101,7 +106,7 @@ public class WaveParticleControl : MonoBehaviour {
 
 	private int compoundPosCount = 0;
 	void CalcCompound() {
-		int particlesPerDir = particleCountPerWave * 2 / dirCount;
+		int particlesPerDir = particleCountPerWave / dirCount;
 		float perAngle = 2 * Mathf.PI / dirCount;
 		Vector3 startPoint = (waveInfos[0].startPoint.position + waveInfos[1].startPoint.position) / 2;
 
@@ -120,8 +125,15 @@ public class WaveParticleControl : MonoBehaviour {
 				var x1 = waveInfos[1].startPoint.position.x;
 				var y1 = waveInfos[1].startPoint.position.y;
 				var z1 = waveInfos[1].startPoint.position.z;
-				var y = waveInfos[0].sinInfo.A * Mathf.Sin(waveInfos[0].sinInfo.omega * (Mathf.Sqrt(Mathf.Pow(x - x0, 2) + Mathf.Pow(z - z0, 2)) - offset)) + y0
-							+ waveInfos[1].sinInfo.A * Mathf.Sin(waveInfos[1].sinInfo.omega * (Mathf.Sqrt(Mathf.Pow(x - x1, 2) + Mathf.Pow(z - z1, 2)) - offset)) + y1;
+				var r0 = Mathf.Sqrt(Mathf.Pow(x - x0, 2) + Mathf.Pow(z - z0, 2));
+				var r1 = Mathf.Sqrt(Mathf.Pow(x - x1, 2) + Mathf.Pow(z - z1, 2));
+				var y = Mathf.Clamp(waveInfos[0].sinInfo.A - r0 * decreasingSpeed, 0f, waveInfos[0].sinInfo.A)
+							* Mathf.Sin(waveInfos[0].sinInfo.omega
+							* (r0 - offset)) + y0
+
+							+ Mathf.Clamp(waveInfos[1].sinInfo.A - r1 * decreasingSpeed, 0f, waveInfos[1].sinInfo.A)
+							* Mathf.Sin(waveInfos[1].sinInfo.omega
+							* (r1 - offset)) + y1;
 
 				compoundPos[index] = new Vector3(x, y, z);
 			}
@@ -154,7 +166,7 @@ public class WaveParticleControl : MonoBehaviour {
 			CalcCompound();
 
 			// show compound particles
-			for (int i = 0; i < particleCountPerWave * 2; ++i) {
+			for (int i = 0; i < particleCountPerWave; ++i) {
 				particles[particleCurIndex].startColor = compoundColor;
 
 				particles[particleCurIndex].position = compoundPos[i];

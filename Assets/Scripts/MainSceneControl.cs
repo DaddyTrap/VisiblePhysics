@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainSceneControl : MonoBehaviour {
 
-	public Transform moveTransform;
+	/* public  */Transform moveTransform;
 	public Camera mainCamera;
 	public float moveDelta = 1f;
 
@@ -48,12 +48,15 @@ public class MainSceneControl : MonoBehaviour {
 				if (hit.transform.CompareTag("AxisX")) {
 					selectingAxis = Axis.AxisX;
 					Debug.Log("Selected AxisX");
+					moveTransform = hit.transform.parent.parent;
 				} else if (hit.transform.CompareTag("AxisY")) {
 					selectingAxis = Axis.AxisY;
 					Debug.Log("Selected AxisY");
+					moveTransform = hit.transform.parent.parent;
 				} else if (hit.transform.CompareTag("AxisZ")) {
 					selectingAxis = Axis.AxisZ;
 					Debug.Log("Selected AxisZ");
+					moveTransform = hit.transform.parent.parent;
 				}
 			}
 		}
