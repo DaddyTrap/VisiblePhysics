@@ -626,6 +626,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2109836}
     m_Modifications:
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4656954927013786, guid: f98081e141d660a4db14d8a7635f8241, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -657,6 +662,41 @@ Prefab:
     - target: {fileID: 4656954927013786, guid: f98081e141d660a4db14d8a7635f8241, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].startPoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].color.r
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].color.g
+      value: 0.012459949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].color.b
+      value: 0.012459949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].sinInfo.A
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114329803542914602, guid: f98081e141d660a4db14d8a7635f8241,
+        type: 2}
+      propertyPath: waveInfos.Array.data[2].sinInfo.omega
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f98081e141d660a4db14d8a7635f8241, type: 2}

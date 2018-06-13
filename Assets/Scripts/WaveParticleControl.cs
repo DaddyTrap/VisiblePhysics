@@ -119,21 +119,31 @@ public class WaveParticleControl : MonoBehaviour {
 				var index = i * particlesPerDir + j;
 				var x = particlesPos.X + startPoint.x;
 				var z = particlesPos.Z + startPoint.z;
-				var x0 = waveInfos[0].startPoint.position.x;
-				var y0 = waveInfos[0].startPoint.position.y;
-				var z0 = waveInfos[0].startPoint.position.z;
-				var x1 = waveInfos[1].startPoint.position.x;
-				var y1 = waveInfos[1].startPoint.position.y;
-				var z1 = waveInfos[1].startPoint.position.z;
-				var r0 = Mathf.Sqrt(Mathf.Pow(x - x0, 2) + Mathf.Pow(z - z0, 2));
-				var r1 = Mathf.Sqrt(Mathf.Pow(x - x1, 2) + Mathf.Pow(z - z1, 2));
-				var y = Mathf.Clamp(waveInfos[0].sinInfo.A - r0 * decreasingSpeed, 0f, waveInfos[0].sinInfo.A)
-							* Mathf.Sin(waveInfos[0].sinInfo.omega
-							* (r0 - offset)) + y0
+				var y = 0f;
+				foreach (var info in waveInfos) {
+					var wX = info.startPoint.position.x;
+					var wY = info.startPoint.position.y;
+					var wZ = info.startPoint.position.z;
+					var wR = Mathf.Sqrt(Mathf.Pow(x - wX, 2) + Mathf.Pow(z - wZ, 2));
+					y += Mathf.Clamp(waveInfos[0].sinInfo.A - wR * decreasingSpeed, 0f, waveInfos[0].sinInfo.A)
+						* Mathf.Sin(waveInfos[0].sinInfo.omega
+						* (wR - offset)) + wY;
+				}
+				// var x0 = waveInfos[0].startPoint.position.x;
+				// var y0 = waveInfos[0].startPoint.position.y;
+				// var z0 = waveInfos[0].startPoint.position.z;
+				// var x1 = waveInfos[1].startPoint.position.x;
+				// var y1 = waveInfos[1].startPoint.position.y;
+				// var z1 = waveInfos[1].startPoint.position.z;
+				// var r0 = Mathf.Sqrt(Mathf.Pow(x - x0, 2) + Mathf.Pow(z - z0, 2));
+				// var r1 = Mathf.Sqrt(Mathf.Pow(x - x1, 2) + Mathf.Pow(z - z1, 2));
+				// var y = Mathf.Clamp(waveInfos[0].sinInfo.A - r0 * decreasingSpeed, 0f, waveInfos[0].sinInfo.A)
+				// 			* Mathf.Sin(waveInfos[0].sinInfo.omega
+				// 			* (r0 - offset)) + y0
 
-							+ Mathf.Clamp(waveInfos[1].sinInfo.A - r1 * decreasingSpeed, 0f, waveInfos[1].sinInfo.A)
-							* Mathf.Sin(waveInfos[1].sinInfo.omega
-							* (r1 - offset)) + y1;
+				// 			+ Mathf.Clamp(waveInfos[1].sinInfo.A - r1 * decreasingSpeed, 0f, waveInfos[1].sinInfo.A)
+				// 			* Mathf.Sin(waveInfos[1].sinInfo.omega
+				// 			* (r1 - offset)) + y1;
 
 				compoundPos[index] = new Vector3(x, y, z);
 			}
