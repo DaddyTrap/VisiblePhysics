@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIBehaviourScript: MonoBehaviour {
     public GameObject TopPanel;
+    public GameObject BottomPanel;
 
     // Use this for initialization
     void Start() {
@@ -49,15 +50,7 @@ public class UIBehaviourScript: MonoBehaviour {
                 Vector2 slideDirection = touchFirst - touchSecond;
                 float x = slideDirection.x;
                 float y = slideDirection.y;
-
-
-                // TopPanel.GetComponent<CanvasGroup>().alpha = 1;
-                // TopPanel.GetComponent<CanvasGroup>().interactable = true;
-                // TopPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-                TopPanel.GetComponent<CanvasGroup>().alpha = 0;
-                TopPanel.GetComponent<CanvasGroup>().interactable = false;
-                TopPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+               
                 if (y + SlidingDistance < x && y > -x - SlidingDistance) {
 
                     if (currentVector == slideVector.left) {
@@ -83,6 +76,15 @@ public class UIBehaviourScript: MonoBehaviour {
                     Debug.Log("up");
 
                     currentVector = slideVector.up;
+
+                    TopPanel.GetComponent<CanvasGroup>().alpha = 0;
+                    TopPanel.GetComponent<CanvasGroup>().interactable = false;
+                    TopPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+                    BottomPanel.GetComponent<CanvasGroup>().alpha = 0;
+                    BottomPanel.GetComponent<CanvasGroup>().interactable = false;
+                    BottomPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
                 } else if (y + SlidingDistance < x && y < -x - SlidingDistance) {
                     if (currentVector == slideVector.down) {
                         return;
@@ -91,6 +93,14 @@ public class UIBehaviourScript: MonoBehaviour {
                     Debug.Log("Down");
 
                     currentVector = slideVector.down;
+
+                    TopPanel.GetComponent<CanvasGroup>().alpha = 1;
+                    TopPanel.GetComponent<CanvasGroup>().interactable = true;
+                    TopPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+                    BottomPanel.GetComponent<CanvasGroup>().alpha = 1;
+                    BottomPanel.GetComponent<CanvasGroup>().interactable = true;
+                    BottomPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 }
 
                 timer = 0;
