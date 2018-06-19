@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="international-music" size="10.000000 10.000000" />
+    <ImageTarget name="img_393846" size="10.000000 11.000000" />
     <ImageTarget name="chopper_scaled" size="5.000000 7.994723" />
     <ImageTarget name="test_image" size="10.000000 14.222222" />
   </Tracking>

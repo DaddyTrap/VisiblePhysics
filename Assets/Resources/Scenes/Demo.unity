@@ -279,7 +279,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.3515625, y: 0, z: 0.5}
+      m_Extent: {x: 0.5, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -348,7 +348,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 0000b4be00000000000000bf000000000000803f0000000000000000000000000000b4be000000000000003f000000000000803f00000000000000000000803f0000b43e00000000000000bf000000000000803f000000000000803f000000000000b43e000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -743,7 +743,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 'test_imageMaterial
+  m_Name: 'international-musicMaterial
 
     -18562'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -758,7 +758,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9713830ff02a4d95aeef19b18b5c5368, type: 3}
+        m_Texture: {fileID: 2800000, guid: f635b4ebba564c6d8c665de5b072917e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2047,15 +2047,15 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: test_image
+  mTrackableName: international-music
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/target_images.xml
   mExtendedTracking: 0
-  mAspectRatio: 1.4222223
+  mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 10
-  mHeight: 14.222222
+  mHeight: 10
 --- !u!4 &1769274598
 Transform:
   m_ObjectHideFlags: 0
@@ -2064,7 +2064,7 @@ Transform:
   m_GameObject: {fileID: 1769274592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14.222222, y: 14.222222, z: 14.222222}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 830517463}
   m_Father: {fileID: 0}
