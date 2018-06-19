@@ -9,6 +9,7 @@ public class SelectInstrPanel : MonoBehaviour {
     public GameObject audioController;
     public GameObject WaveHigher;
     public GameObject WaveLower;
+    public GameObject WaveNormal;
 
   public void OnSelectJiTaButtonClick() {
         Texture2D _tex = Resources.Load("Image/乐器icon/jita", typeof(Texture2D)) as Texture2D;
@@ -16,8 +17,11 @@ public class SelectInstrPanel : MonoBehaviour {
 
         // 播放音效
         audioController.GetComponent<AudioController>().PlayClipData(0);
-    WaveLower.SetActive(true);
-    WaveHigher.SetActive(false);
+
+        WaveLower.SetActive(true);
+        WaveHigher.SetActive(false);
+        WaveNormal.SetActive(false);
+
         this.gameObject.SetActive(false);
     }
 
@@ -27,9 +31,12 @@ public class SelectInstrPanel : MonoBehaviour {
 
         // 播放音效
         audioController.GetComponent<AudioController>().PlayClipData(1);
-    WaveLower.SetActive(false);
-    WaveHigher.SetActive(true);
-    this.gameObject.SetActive(false);
+
+        WaveLower.SetActive(false);
+        WaveHigher.SetActive(true);
+        WaveNormal.SetActive(false);
+
+        this.gameObject.SetActive(false);
     }
 
 }

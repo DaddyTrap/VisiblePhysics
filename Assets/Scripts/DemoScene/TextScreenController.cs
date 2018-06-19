@@ -9,7 +9,7 @@ public class TextScreenController : MonoBehaviour {
     private string[] myText = new string[15];
     int last = -1;
     int current = 0;
-    float speed = 0.5f;
+    float speed = 0.3f;
 
 	void Start () {
         myText[0] = "发声体产生的振动在空气或其他物质中的传播叫做声波";
