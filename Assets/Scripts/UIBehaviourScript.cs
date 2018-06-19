@@ -5,11 +5,13 @@ using UnityEngine.UI;
 public class UIBehaviourScript: MonoBehaviour {
     public GameObject TopPanel;
     public GameObject BottomPanel;
+  public GameObject WaveHigher;
+  public GameObject WaveLower;
+  void Start() {
+    WaveLower.SetActive(false);
+    WaveHigher.SetActive(false);
+  }
 
-    // Use this for initialization
-    void Start() {
-
-    }
 
     // Update is called once per frame
     void Update() {

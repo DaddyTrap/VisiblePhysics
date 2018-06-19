@@ -5,7 +5,6 @@ using UnityEngine;
 public class SelectInstr : MonoBehaviour {
 
     public GameObject selectInstrPanel;
-
     public void OnSelectInstrButtonClick() {
         if (selectInstrPanel.activeSelf == false)
             selectInstrPanel.SetActive(true);
