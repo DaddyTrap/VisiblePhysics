@@ -107,7 +107,11 @@ public class WaveParticleControl : MonoBehaviour {
 	void CalcCompound() {
 		int particlesPerDir = particleCountPerWave / dirCount;
 		float perAngle = 2 * Mathf.PI / dirCount;
-		Vector3 startPoint = (waveInfos[0].startPoint.position + waveInfos[1].startPoint.position) / 2;
+		Vector3 pointSum = Vector3.zero;
+		foreach (var waveInfo in waveInfos) {
+			pointSum += waveInfo.startPoint.position;
+		}
+		Vector3 startPoint = pointSum / waveInfos.Length;
 
 		for (int i = 0; i < dirCount; ++i) {
 			for (int j = 0; j < particlesPerDir; ++j) {
